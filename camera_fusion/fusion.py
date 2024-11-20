@@ -45,8 +45,8 @@ def pad_and_concat(im1: np.ndarray, im2: np.ndarray) -> np.ndarray:
 
     return np.hstack((im1, im2))
     
-    
-def fuse_two_frames(im_one_path: str, im_two_path: str, im_one_calib_path: str, im_two_calib_path: str):
+
+def fuse_two_frames(im_one_path: str, im_two_path: str, im_one_calib_path: str, im_two_calib_path: str) -> np.ndarray:
     """ takes two images (left, and right) and homographically projects the right image onto the left.
 
     Inputs:
@@ -109,4 +109,5 @@ def fuse_two_frames(im_one_path: str, im_two_path: str, im_one_calib_path: str, 
     cv2.imshow(" ", warped_cover)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    
     return warped_cover
