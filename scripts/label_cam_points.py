@@ -3,15 +3,24 @@
 
 import numpy as np
 import cv2
+import os
 
-data_path = "data/fused_image_points/"
+data_path = "data/fused_image_points/test_1"
 img_path = "camera_fusion/homography_result.jpg"  # ends in .jpg
 
 class Image:
     def __init__(self, image: np.ndarray):
         self.image = image
         self.selected_points = []
-
+    def save(self, path_to_save: str) -> bool:
+        if path_to_save is not None and os.path.exists(os.path.dirname(path_to_save)): 
+            assert not os.path.exists(path_to_save)  # Make sure we are not overwriting data
+            np.save(path_to_save, np.stack(self.selected_points))
+            print(f"saved to {path_to_save}")
+            return True
+        else: 
+            print("problem with path. Either it does not exist or another file already exists with the same name")
+            return False
     
 def click_event(event, x, y, flags, user_data: Image):
     """OpenCV mouse left click callback that saves the pixel to a variable"""
@@ -34,7 +43,9 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
 
-print
+print(user_data.selected_points)
+
+user_data.save(data_path)
 
 cv2.destroyAllWindows()    
 
