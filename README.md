@@ -1,6 +1,6 @@
 # This repository is attempting to implement LiDAR to camera calibration via Direct Linear Transform
 
->The goal is to solve the equation $\vec{x} = \text{P}\mathbf{X}$ for P, where $\vec{x}$ is the camera pixel coordinate, $\begin{pmatrix} u \\ v \end{pmatrix}$, $\mathbf{X}$ is a point in LIDAR space, $\begin{pmatrix} x \\ y \\ z \end{pmatrix}$, and $\text{P is the projection matrix P} = \textbf{K}R[I_3 | - X_0]$  
+> The goal is to solve the equation $\vec{x} = \text{P}\mathbf{X}$ for P, where $\vec{x}$ is the camera pixel coordinate, $\begin{pmatrix} u \\ v \end{pmatrix}$, $\mathbf{X}$ is a point in LIDAR space, $\begin{pmatrix} x \\ y \\ z \end{pmatrix}$, and $\text{P is the projection matrix P} = \textbf{K}R[I_3 | - X_0]$  
 
 - $$\textbf{K} \text{ is the intrinsic camera parameter matrix}$$
 - $$R \text{ is the rotation matrix}$$

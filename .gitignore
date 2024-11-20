@@ -1,0 +1,4 @@
+venv/
+.vscode/
+/camera_fusion/Data
+/data
