@@ -1,6 +1,8 @@
 # This repository implements LiDAR to camera calibration via Direct Linear Transform
 
-```math
+## btw this is not renering properly on GitHub (if you want to see the equations open in vscode)
+
+```math 
 \text{The goal is to solve the equation } \vec{x} = \text{P}\mathbf{X} \text{ for P}
 ```
 
@@ -8,14 +10,13 @@
 ```math 
 \vec{x} \text{ is the camera pixel coordinate (homogeneous coordinates)}  \begin{pmatrix} u \\ v \\ 1 \end{pmatrix} \\  
 
-\mathbf{X} \text{ is a point in LIDAR space (homogeneous coordinates)} \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix}
+\mathbf{X} \text{ is a point in LIDAR space (homogeneous coordinates)} \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} \\
+
+\text{P is the projection matrix, P: } \R^{4} \rightarrow \R^{3} \text{, P} = \textbf{K}R[I_3 | - X_0] \\
+\textbf{K} \text{ is the intrinsic camera parameter matrix} \\
+R \text{ is the rotation matrix} \\
+X_0 \text{ is the location of the camera in LiDAR space}
 ```
-$$\text{P is the projection matrix (P}: \R^{4} \rightarrow \R^{3} \text{) P} = \textbf{K}R[I_3 | - X_0]$$
-$$\textbf{K} \text{ is the intrinsic camera parameter matrix}$$
-$$R \text{ is the rotation matrix}$$
-$$X_0 \text{ is the location of the camera in LiDAR space}$$
-
-
 
 > [!IMPORTANT]
 > This requires at least 6 points in space that are identified in the camera frame and the lidar. These points ***must not be coplanar*** (would result in a reduction of rank of the final matrix making solving for the parameters impossible).

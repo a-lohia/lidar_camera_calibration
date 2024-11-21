@@ -1,4 +1,15 @@
-venv/
-.vscode/
+# Byte-compiled / Optimized Files
+__pycache__/
+camera_fusion/__pycache__/
+
+.DS_Store
+
+# Data
 /camera_fusion/Data
 /data
+
+# Environments
+venv/
+
+
+.vscode/
