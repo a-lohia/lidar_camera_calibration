@@ -2,6 +2,13 @@
 
 ## btw this is not renering properly on GitHub (if you want to see the equations open in vscode)
 
+## The Repo
+- `main.py` is where the test is run
+- `dlt.py` has the direct linear transform function that takes in lidar and camera points and returns the projection matrix
+- `camera_fusion/` houses the module that calibrates cameras for barrel distortion using Zhang's method and fuses two camera frames together via homography
+- dm Arya Lohia on slack if you want the data
+
+## The Math
 ```math 
 \text{The goal is to solve the equation } \vec{x} = \text{P}\mathbf{X} \text{ for P}
 ```
