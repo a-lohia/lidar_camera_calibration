@@ -1,12 +1,12 @@
 # Written by Arya Lohia for Carnegie Mellon Racing. Fall 2024
-# Takes a combined camera image and lets you select pixels. Outputs a .npz file to a folder of choice
+# Takes a combined camera image and lets you select pixels. Outputs a .npy file to a folder of choice
 
 import numpy as np
 import cv2
 import os
 
-data_path = "data/fused_image_points/test_1"
-img_path = None  # "camera_fusion/homography_result.jpg"  # ends in .jpg
+data_path = "data/fused_image_points/test_2"
+img_path =  "camera_fusion/homography_result.jpg"  # ends in .jpg
 
 class Image:
     def __init__(self, image: np.ndarray):
