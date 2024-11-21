@@ -4,8 +4,9 @@
 
 ## The Repo
 - `main.py` is where the test is run
-- `dlt.py` has the direct linear transform function that takes in lidar and camera points and returns the projection matrix
-- `camera_fusion/` houses the module that calibrates cameras for barrel distortion using Zhang's method and fuses two camera frames together via homography
+- `dlt.py` has the direct linear transform function that takes in LiDAR and camera points and returns the projection matrix
+- `camera_fusion/` houses the module that calibrates cameras for barrel distortion using [Zhang's method](https://www.ipb.uni-bonn.de/html/teaching/photo12-2021/2021-pho1-22-Zhang-calibration.pptx.pdf) and fuses two camera frames together via homography
+- `scripts/` has scripts for labeling camera and LiDAR data. Follow comments in the script to use. Note: currently the LiDAR labeling is unimplemented
 - dm Arya Lohia on slack if you want the data
 
 ## The Math

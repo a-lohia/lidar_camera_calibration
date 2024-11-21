@@ -5,10 +5,14 @@ import numpy as np
 import cv2
 import os
 
+# This is the save path
 data_path = "data/fused_image_points/test_2"
+
+# This is the image you are selecting points on
 img_path =  "camera_fusion/homography_result.jpg"  # ends in .jpg
 
 class Image:
+    """This class is so that you don't need to use global variables with OpenCV event callbacks"""
     def __init__(self, image: np.ndarray):
         self.image = image
         self.selected_points = []
@@ -32,6 +36,7 @@ def click_event(event, x, y, flags, user_data: Image):
         # Draw a circle at the clicked point
         cv2.circle(user_data.image, (x, y), 5, color, -1)
 
+# Open the image
 img = cv2.imread(img_path)
 user_data = Image(img)
 
@@ -45,6 +50,7 @@ while True:
 
 print(user_data.selected_points)
 
+# TODO: confirm that it won't overwrite saved data
 user_data.save(data_path)
 
 cv2.destroyAllWindows()    
