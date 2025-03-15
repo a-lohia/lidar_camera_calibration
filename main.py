@@ -20,6 +20,8 @@ lidar_points = np.array([
 
 dlt_mat = dlt(cam_data=cam_points, lidar_data=lidar_points)
 
+# np.savetxt("dlt_mat.out", dlt_mat, delimiter=', ')
+
 test_points = np.array([
     [2.1892471313476562, 2.1655070781707764, 0.16980226337909698],
     [4.535505771636963, 3.7224624156951904, 0.07677774876356125],
@@ -30,6 +32,8 @@ test_points = np.hstack((test_points, np.ones((test_points.shape[0], 1))))
 image = cv2.imread(img_path)
 color = (0, 0, 255)
 
+transformed_points = []
+
 for i in range(test_points.shape[0]):
     print(dlt_mat @ test_points[i])
 
@@ -38,10 +42,14 @@ for i in range(test_points.shape[0]):
     # divide by z to get the euclidean normed coordinates
     u, v = int(x/z), int(y/z)
 
+    transformed_points.append(np.array([u, v]))
+
     print(u,v)
 
     # Draw a circle at the transformed point
     cv2.circle(image, (u, v), 10, color, -1)
+
+# np.savetxt("pixel.out", np.stack(transformed_points), delimiter=', ')
 
 cv2.imshow("Fused Image", image)
 

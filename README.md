@@ -2,6 +2,23 @@
 
 ## btw this is not renering properly on GitHub (if you want to see the equations open in vscode)
 
+## TODO
+
+1. Add support for LiDAR point selection/visualization through Open3D
+
+1. Integrate code for lidar syncing. Code is [here](https://github.com/carnegiemellonracing/driverless/blob/dual-lidar/driverless_ws/src/perceptions/perceptions/ros/utils/debug/LidarVisNode.py) (add ICP)
+
+2. Point to Pixel Algorithm
+    - test the case of two cones in front of each other
+3. Think of averaging or other techniques to increase robustness of the pipeline
+
+4. Add code to increase redundancy of dlt (more observations + minimizations)
+
+5. Change algorithms to take keep image separate
+
+
+
+
 ## The Repo
 - `main.py` is where the test is run
 - `dlt.py` has the direct linear transform function that takes in LiDAR and camera points and returns the projection matrix
